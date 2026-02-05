@@ -1,0 +1,75 @@
+{
+  "name": "@wojtekmaj/react-docx",
+  "version": "0.1.0",
+  "description": "Render DOCX documents with React",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "source": "./src/index.ts",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./*": "./*"
+  },
+  "scripts": {
+    "build": "tsc --project tsconfig.build.json",
+    "clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true })\"",
+    "format": "biome format",
+    "lint": "biome lint",
+    "prepack": "yarn clean && yarn build",
+    "test": "yarn lint && yarn tsc && yarn format && yarn unit",
+    "tsc": "tsc",
+    "unit": "vitest",
+    "watch": "yarn build --watch"
+  },
+  "keywords": [
+    "react",
+    "docx",
+    "document",
+    "renderer"
+  ],
+  "author": {
+    "name": "Wojciech Maj",
+    "email": "kontakt@wojtekmaj.pl"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "docx": "^9.5.1",
+    "react-reconciler": "^0.33.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.3.11",
+    "@total-typescript/ts-reset": "^0.6.1",
+    "@types/node": "^24.10.0",
+    "@types/react": "^19.2.0",
+    "@types/react-reconciler": "^0.33.0",
+    "react": "^19.2.0",
+    "typescript": "^5.9.2",
+    "vitest": "^4.0.1"
+  },
+  "peerDependencies": {
+    "@types/react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0",
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    }
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "files": [
+    "dist/**/*",
+    "src/**/*",
+    "!**/*.spec.ts",
+    "!**/*.spec.tsx"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wojtekmaj/react-docx.git",
+    "directory": "packages/react-docx"
+  },
+  "funding": "https://github.com/wojtekmaj/react-docx?sponsor=1"
+}

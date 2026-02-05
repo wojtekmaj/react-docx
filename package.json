@@ -1,0 +1,24 @@
+{
+  "name": "react-docx-monorepo",
+  "version": "1.0.0",
+  "description": "react-docx monorepo",
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "test"
+  ],
+  "scripts": {
+    "build": "yarn workspace @wojtekmaj/react-docx build",
+    "dev": "yarn workspace @wojtekmaj/react-docx watch & yarn workspace test dev",
+    "format": "yarn workspaces foreach --all run format",
+    "lint": "yarn workspaces foreach --all run lint",
+    "postinstall": "husky",
+    "test": "yarn workspaces foreach --all run test",
+    "tsc": "yarn workspaces foreach --all run tsc",
+    "unit": "yarn workspaces foreach --all run unit"
+  },
+  "devDependencies": {
+    "husky": "^9.0.0"
+  },
+  "packageManager": "yarn@4.12.0"
+}
